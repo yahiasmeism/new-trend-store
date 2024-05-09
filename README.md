@@ -1,3 +1,7 @@
+<div>
+  <img src='App_preview/1.jpg'>
+</div>
+
 # store
 
 A new Flutter project.
