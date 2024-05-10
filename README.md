@@ -1,3 +1,12 @@
+<div>
+  <img src='App_preview/1.jpg' width='200'>
+  <img src='App_preview/2.jpg' width='200'>
+  <img src='App_preview/3.jpg' width='200'>
+  <img src='App_preview/4.jpg' width='200'>
+  <img src='App_preview/5.jpg' width='200'>
+  <img src='App_preview/6.jpg' width='200'>
+</div>
+
 # store
 
 A new Flutter project.
