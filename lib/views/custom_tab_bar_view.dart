@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:store/helper/constants.dart';
-import 'package:store/tabs/favorite_tab.dart';
-import 'package:store/tabs/products_builder_tab.dart';
-import 'package:store/tabs/categories_tab.dart';
-import 'package:store/tabs/settings_tab.dart';
+import 'package:store/views/favorite_view.dart';
+import 'package:store/views/home_view.dart';
+import 'package:store/views/categories_view.dart';
+import 'package:store/views/settings_view.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class CustomTabBarView extends StatefulWidget {
+  const CustomTabBarView({super.key});
   static const id = 'HomePage';
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<CustomTabBarView> createState() => _CustomTabBarViewState();
 }
 
-class _HomePageState extends State<HomePage>
+class _CustomTabBarViewState extends State<CustomTabBarView>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
@@ -89,10 +89,10 @@ class _HomePageState extends State<HomePage>
       body: TabBarView(
         controller: _tabController,
         children: const [
-          ProductsBuilderTab(),
-          CategorisTab(),
-          FavoriteTab(),
-          SettingsTab(),
+          HomeView(),
+          CategorisView(),
+          FavoriteView(),
+          SettingsView(),
         ],
       ),
     );

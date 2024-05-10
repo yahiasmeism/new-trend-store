@@ -3,10 +3,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:store/helper/constants.dart';
 import 'package:store/model/product_model.dart';
 import 'package:store/services/get_all_products.dart';
-import 'package:store/widgets/products_grid_view.dart';
+import 'package:store/widgets/products_grid_builder.dart';
 
-class FavoriteTab extends StatelessWidget {
-  const FavoriteTab({super.key});
+class FavoriteView extends StatelessWidget {
+  const FavoriteView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,15 +19,15 @@ class FavoriteTab extends StatelessWidget {
             if (snapshot.hasData) {
               List<String> favoritesProductId =
                   prefs.data!.getStringList(favorites) ?? [];
-              List<ProductModel> products = snapshot.data!.where(
+              List<ProductModel> favoriteProducts = snapshot.data!.where(
                 (currentProduct) {
                   return favoritesProductId
                       .contains(currentProduct.id.toString());
                 },
               ).toList();
 
-              return ProductsGridView(
-                products: products,
+              return ProductsGridViewBuilder(
+                products: favoriteProducts,
               );
             } else if (snapshot.hasError) {
               return const Center(

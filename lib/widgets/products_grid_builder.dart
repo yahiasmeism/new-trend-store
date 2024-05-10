@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:store/model/product_model.dart';
 import 'package:store/widgets/product_mini_card_widget.dart';
 
-class ProductsGridView extends StatelessWidget {
-  const ProductsGridView({
+class ProductsGridViewBuilder extends StatelessWidget {
+  const ProductsGridViewBuilder({
     super.key,
     required this.products,
   });

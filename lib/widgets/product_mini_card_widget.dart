@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:store/model/product_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:store/pages/product_details_page.dart';
+import 'package:store/views/product_details_view.dart';
 import 'package:store/widgets/custom_cupertino_button.dart';
 
 class ProductMiniCardWidget extends StatefulWidget {
@@ -22,14 +22,14 @@ class _ProductMiniCardWidgetState extends State<ProductMiniCardWidget> {
   @override
   void initState() {
     super.initState();
-    fetchProductsFavorite().then((data) {
+    fetchSharedPrefrences().then((data) {
       setState(() {
         prefs = data;
       });
     });
   }
 
-  Future<SharedPreferences?> fetchProductsFavorite() async {
+  Future<SharedPreferences?> fetchSharedPrefrences() async {
     prefs = await SharedPreferences.getInstance();
     return prefs;
   }
@@ -38,8 +38,14 @@ class _ProductMiniCardWidgetState extends State<ProductMiniCardWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () async {
-          await Navigator.pushNamed(context, ProductDetailsPage.id,
-              arguments: widget.product);
+          await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (builder) {
+                return ProductDetailsView(product: widget.product);
+              },
+            ),
+          );
           setState(() {});
         },
         child: Container(

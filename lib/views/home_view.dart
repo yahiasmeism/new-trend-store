@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:store/services/get_all_products.dart';
 
-import '../widgets/products_grid_view.dart';
+import '../widgets/products_grid_builder.dart';
 
-class ProductsBuilderTab extends StatelessWidget {
-  const ProductsBuilderTab({
+class HomeView extends StatelessWidget {
+  const HomeView({
     super.key,
   });
 
@@ -14,7 +14,7 @@ class ProductsBuilderTab extends StatelessWidget {
       future: GetAllProducts.get(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return ProductsGridView(
+          return ProductsGridViewBuilder(
             products: snapshot.data!,
           );
         } else if (snapshot.hasError) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store/model/category_model.dart';
-import 'package:store/pages/products_category_page.dart';
+import 'package:store/views/products_by_category_view.dart';
 
 class CategoryTile extends StatelessWidget {
   const CategoryTile({
@@ -16,10 +16,13 @@ class CategoryTile extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(
+              Navigator.push(
                 context,
-                ProductsCategoryPage.id,
-                arguments: categoryModel,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ProductsByCategoryView(category: categoryModel);
+                  },
+                ),
               );
             },
             child: Container(

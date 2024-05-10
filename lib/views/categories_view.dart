@@ -5,16 +5,25 @@ import 'package:flutter/widgets.dart';
 import 'package:store/model/category_model.dart';
 import 'package:store/widgets/category_tile.dart';
 
-class CategorisTab extends StatelessWidget {
-  const CategorisTab({super.key});
+class CategorisView extends StatelessWidget {
+  const CategorisView({super.key});
   final List<CategoryModel> categories = const [
-    CategoryModel(title: 'electronics', image: 'assets/images/electronics.jpg'),
-    CategoryModel(title: 'jewelery', image: 'assets/images/jewelery.jpg'),
     CategoryModel(
-        title: 'men\'s clothing', image: 'assets/images/men\'s clothing.jpg'),
+      title: 'electronics',
+      image: 'assets/images/electronics.jpg',
+    ),
     CategoryModel(
-        title: 'women\'s clothing',
-        image: 'assets/images/women\'s clothing.jpg'),
+      title: 'jewelery',
+      image: 'assets/images/jewelery.jpg',
+    ),
+    CategoryModel(
+      title: 'men\'s clothing',
+      image: 'assets/images/men\'s clothing.jpg',
+    ),
+    CategoryModel(
+      title: 'women\'s clothing',
+      image: 'assets/images/women\'s clothing.jpg',
+    ),
   ];
   @override
   Widget build(BuildContext context) {

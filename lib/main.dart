@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store/helper/constants.dart';
-import 'package:store/pages/home_page.dart';
-import 'package:store/pages/product_details_page.dart';
-import 'package:store/pages/products_category_page.dart';
+import 'package:store/views/custom_tab_bar_view.dart';
 
 void main() {
   runApp(const StoreApp());
@@ -16,12 +14,7 @@ class StoreApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(primarySwatch: kPrimaryColor, useMaterial3: false),
       debugShowCheckedModeBanner: false,
-      initialRoute: HomePage.id,
-      routes: {
-        HomePage.id: (context) => const HomePage(),
-        ProductsCategoryPage.id: (context) => const ProductsCategoryPage(),
-        ProductDetailsPage.id: (context) => const ProductDetailsPage(),
-      },
+      home: const CustomTabBarView(),
     );
   }
 }

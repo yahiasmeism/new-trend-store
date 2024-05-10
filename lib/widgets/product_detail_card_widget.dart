@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:store/helper/constants.dart';
 import 'package:store/model/product_model.dart';
-
-import '../widgets/custom_cupertino_button.dart';
+import 'package:store/widgets/custom_cupertino_button.dart';
 
 class ProductDetailCardWidget extends StatefulWidget {
   const ProductDetailCardWidget({super.key, required this.product});

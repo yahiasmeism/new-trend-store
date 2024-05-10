@@ -8,21 +8,18 @@ import 'package:store/widgets/stars_rate.dart';
 
 import '../widgets/custom_cupertino_button.dart';
 
-class ProductDetailsPage extends StatefulWidget {
-  const ProductDetailsPage({super.key});
-  static const id = 'ProductDetailsPage';
-
+class ProductDetailsView extends StatefulWidget {
+  const ProductDetailsView({super.key, required this.product});
+  final ProductModel product;
   @override
-  State<ProductDetailsPage> createState() => _ProductDetailsPageState();
+  State<ProductDetailsView> createState() => _ProductDetailsViewState();
 }
 
-class _ProductDetailsPageState extends State<ProductDetailsPage> {
+class _ProductDetailsViewState extends State<ProductDetailsView> {
   SharedPreferences? prefs;
   @override
   @override
   Widget build(BuildContext context) {
-    ProductModel product =
-        ModalRoute.of(context)?.settings.arguments as ProductModel;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -52,7 +49,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
           child: Column(
             children: [
-              ProductDetailCardWidget(product: product),
+              ProductDetailCardWidget(product: widget.product),
               const SizedBox(height: 12),
               const Row(
                 children: [
@@ -74,7 +71,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     child: Padding(
                       padding: const EdgeInsets.only(right: 10),
                       child: Text(
-                        product.description,
+                        widget.product.description,
                         style: const TextStyle(color: Colors.black54),
                       ),
                     ),
@@ -89,13 +86,13 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     children: [
                       const Icon(Icons.add_shopping_cart),
                       Text(
-                        product.rataing.count.toString(),
+                        widget.product.rataing.count.toString(),
                         style: const TextStyle(fontSize: 18),
                       ),
                     ],
                   ),
                   StarsRate(
-                    rate: product.rataing.rate,
+                    rate: widget.product.rataing.rate,
                     size: 30,
                   ),
                 ],
@@ -107,19 +104,22 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 padding:
                     const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
                 child: CupertinoButton(
-                    borderRadius: BorderRadius.circular(14),
-                    color: kPrimaryColor,
-                    onPressed: () {},
-                    child: const Row(
-                      children: [
-                        Expanded(
-                            child: Center(
-                                child: Text(
-                          'Add To Cart',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        )))
-                      ],
-                    )),
+                  borderRadius: BorderRadius.circular(14),
+                  color: kPrimaryColor,
+                  onPressed: () {},
+                  child: const Row(
+                    children: [
+                      Expanded(
+                        child: Center(
+                          child: Text(
+                            'Add To Cart',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
