@@ -1,5 +1,5 @@
 
-  <img src='app_preview.svg'>
+  <img src='app_preview.png'>
 
 <hr>
 # store
